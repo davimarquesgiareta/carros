@@ -1,18 +1,11 @@
 // usar o for eaach pra listar quem tem nos objetos
 console.log("to aqui")
 
-console.log(localStorage.getItem('cadastrados'))
 
 
 const $ = q => document.querySelector(q);
 
-console.log("TESTES")
 
-console.log('INTERAÇÃO AGORA')
-console.log(localStorage.getItem('modelo'))
-console.log(localStorage.getItem('marca'))
-console.log(localStorage.getItem('preco'))
-console.log(localStorage.getItem('cor'))
 
 
 var nomemodelo =  localStorage.getItem('modelo');
@@ -23,27 +16,18 @@ var nomedescricao = localStorage.getItem('descricao');
 var nomeano = localStorage.getItem('ano');
 
 
-/*
-var nomemodelo =  'muito bao'
-var nomemarca = 'sensacional'
-var nomepreco = 1986
-var nomecor = 'nossa'
-var nomedescricao ='bao demais'
-*/
+for (var d=0; d<=localStorage.getItem("contador") ; d++){
+          
 
+  if(localStorage.getItem('marca' + " " + d)){
+    listar(d)
 
-renderclientes();
-function renderclientes(){
-    
-    const cadastrados = localStorage.cadastrados ? JSON.parse(localStorage.cadastrados) : [];
-
-    cadastrados.forEach(c => listar(c))
-
+  }
 }
 
 
-function listar(){
- 
+function listar(d){
+ console.log(d)
   //listaE1[0] = document.querySelector('#cadastrosdecarros');
     //const conteudo = document.createElement('<p>')
    //listaE1[0].innerHTML="aaaaa"
@@ -59,23 +43,27 @@ function listar(){
               </div>
               <div class="col-sm">
                 <p>
-                    <h4 id='nomedomodelo'>${nomemodelo}</h4>
+                    <h4 id='nomedomodelo'>${localStorage.getItem('modelo'+" " + d)}</h4>
                 </p>
+                <label id="identificador"> ${d}</label>
                 <p>
-                    <strong>Marca:</strong> <label id="marcaveiculo">${nomemarca}</label>
+                    
+                    <strong>Marca:</strong> <label id="marcaveiculo">${localStorage.getItem('marca'+" " + d)}</label>
                     <br>
-                    <strong>Preço:</strong> R$ <label id="preco"> ${nomepreco}</label> 
+                    <strong>Preço:</strong> R$ <label id="preco"> ${localStorage.getItem('preco'+" " + d)}</label> 
                     <br>
-                    <strong>Cor:</strong> <label id="cor">${nomecor}</label>
+                    <strong>Cor:</strong> <label id="cor">${localStorage.getItem('cor'+" " + d)}</label>
                     <br>
-                    <strong>Ano:</strong> <label id="cor">${nomeano}</label>
+                    <strong>Ano:</strong> <label id="cor">${localStorage.getItem('ano'+" " + d)}</label>
                 </p>
+                
                 <p>
-                    <label id="descricao">${nomedescricao} </label>
+                    <label id="descricao">${localStorage.getItem('descricao'+" " + d)} </label>
                 </p>
+                
                 <p class="float-right">
-                    <a href="#"  class="btn btn-primary">Editar</a>
-                    <a href="#" id="botaoexcluir" onclick="deletar()" class="btn btn-danger">Excluir</a>
+                    <a href="#" id="${d}" class="btn btn-primary">Editar</a>
+                    <a href="#" id="${d}" onclick="deletar(d)" class="btn btn-danger">Excluir</a>
                 </p>
               </div>
               
@@ -85,6 +73,8 @@ function listar(){
     $("#addcadastrosdecarros").appendChild(row);
 }
 
-function deletar(){
-   console.log("deletar kekeke")
+function deletar(d){
+   console.log(d)
+  
+  
 }

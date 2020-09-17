@@ -283,28 +283,56 @@
       
       // SE NÃO FALTAR NENHUM CAMPO OBRIGATÓRIO SALVA O CADASTRO E PASSA PRA PAGINA DE CADASTRO SUCEDIDO! 
       if(validar == 0){
-        console.log("passar para a tela de cadastra bem sucedido!")
-        localStorage.setItem('marca',marca) 
-        localStorage.setItem('ano',ano) 
-        localStorage.setItem('foto',foto) 
-        localStorage.setItem('modelo',modelo) 
-        localStorage.setItem('preco',preco) 
-        localStorage.setItem('cor',cor) 
-        localStorage.setItem('descricao',descricao) 
 
-        console.log("VALORES QUE VEM DO FORM antes de ir NO CLIENTES.JS")
-    console.log(localStorage.getItem('marca'))
-    console.log(localStorage.getItem('ano'))
-    console.log(localStorage.getItem('foto'))
-    console.log(localStorage.getItem('modelo'))
-    console.log(localStorage.getItem('preco'))
-    console.log(localStorage.getItem('cor'))
-    console.log(localStorage.getItem('descricao'))
         
+        if(localStorage.getItem('contador')<=0){
+          console.log('damm it')
+          localStorage.setItem('contador', 0)
+                                                  }
+
+
+        localStorage.setItem('contador', parseInt(localStorage.getItem('contador')) + 1)
+
+
+
+        console.log("passar para a tela de cadastra bem sucedido!")
+
+        var i = localStorage.getItem('contador')
+
+        localStorage.setItem('marca' + " " + i,marca) 
+        localStorage.setItem('ano' + " " + i,ano) 
+        localStorage.setItem('foto' + " " + i,foto) 
+        localStorage.setItem('modelo' + " " + i,modelo) 
+        localStorage.setItem('preco' + " " + i,preco) 
+        localStorage.setItem('cor' + " " + i,cor) 
+        localStorage.setItem('descricao' + " " + i,descricao) 
+        
+        console.log("VAI TOMAR NO CU")
+        
+        for (var d=0; d<=i ; d++){
+          
+
+          if(localStorage.getItem('marca' + " " + d)){
+            console.log(localStorage.getItem('marca'+" " + d))
+            console.log(localStorage.getItem('ano'+" " + d))
+            console.log(localStorage.getItem('foto'+" " + d))
+            console.log(localStorage.getItem('modelo'+" " + d))
+            console.log(localStorage.getItem('preco'+" " + d))
+            console.log(localStorage.getItem('cor'+" " + d))
+            console.log(localStorage.getItem('descricao'+" " + d))
+        
+          }
+        }
+
+        
+        
+     
         
         rotinaclientes();
-
         
+        
+          
+         
 
 
     
