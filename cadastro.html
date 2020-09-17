@@ -170,7 +170,7 @@
           <div class="col-sm">
             <p class="float-right">
                 <a href="#" type="submit" onclick="cadastrarveiculo()" class="btn btn-primary">Cadastrar Veículo</a>
-                <a href="#" name="limpar" id="limpar" class="btn btn-secondary" >Limpar</a>
+                <a href="#" name="limpar" onclick="limpar()"id="limpar" class="btn btn-secondary" >Limpar</a>
             </p>
           </div>
         </div>
@@ -188,6 +188,7 @@
     <script>
       
 
+      
      
       document.getElementById('erro1').style.display='none'
       document.getElementById('erro2').style.display='none'
@@ -205,13 +206,13 @@
       
 
       // ZERANDO TODAS AS MENSAGENS DE ERROS DO HTML
-      console.log(document.getElementById('marca').value)
+     /* console.log(document.getElementById('marca').value)
       console.log(document.getElementById('ano').value)
       console.log(document.getElementById('foto').value)
       console.log(document.getElementById('modelo').value)
       console.log(document.getElementById('preco').value)
       console.log(document.getElementById('cor').value)
-      console.log(document.getElementById('descricao').value)
+      console.log(document.getElementById('descricao').value)*/
       // FIM ZERANDO TODAS AS MENSAGENS DE ERROS DO HTML
 
       // VARIAVEIS DOS CAMPOS
@@ -243,8 +244,8 @@
         document.getElementById('erro2').style.display='none'
       }
 
-      if (foto == ""){
-        console.log("o campo FOTO está vazio")
+      if (foto == "ford"){
+        console.log("eh ford")
         
       }
 
@@ -283,8 +284,35 @@
       // SE NÃO FALTAR NENHUM CAMPO OBRIGATÓRIO SALVA O CADASTRO E PASSA PRA PAGINA DE CADASTRO SUCEDIDO! 
       if(validar == 0){
         console.log("passar para a tela de cadastra bem sucedido!")
+        localStorage.setItem('marca',marca) 
+        localStorage.setItem('ano',ano) 
+        localStorage.setItem('foto',foto) 
+        localStorage.setItem('modelo',modelo) 
+        localStorage.setItem('preco',preco) 
+        localStorage.setItem('cor',cor) 
+        localStorage.setItem('descricao',descricao) 
+
+        console.log("VALORES QUE VEM DO FORM antes de ir NO CLIENTES.JS")
+    console.log(localStorage.getItem('marca'))
+    console.log(localStorage.getItem('ano'))
+    console.log(localStorage.getItem('foto'))
+    console.log(localStorage.getItem('modelo'))
+    console.log(localStorage.getItem('preco'))
+    console.log(localStorage.getItem('cor'))
+    console.log(localStorage.getItem('descricao'))
+        
+        
+        rotinaclientes();
+
+        
+
+
+    
+
+        
       }
 
+      
       
 
     }
@@ -300,5 +328,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="/js/clientes.js"></script>
   </body>
 </html>
