@@ -8,6 +8,7 @@ const $ = q => document.querySelector(q);
 
 
 
+
 var nomemodelo =  localStorage.getItem('modelo');
 var nomemarca =  localStorage.getItem('marca');
 var nomepreco = localStorage.getItem('preco');
@@ -39,7 +40,7 @@ function listar(d){
     row.innerHTML = `
     <div class="row">
               <div class="col-sm-2">
-                <img src="/img/hyundai.jpg" class="img-fluid" alt="Imagem responsiva">
+                <img src="${localStorage.getItem('foto'+" " + d)}" class="img-fluid" alt="Imagem responsiva">
               </div>
               <div class="col-sm">
                 <p>
@@ -63,7 +64,7 @@ function listar(d){
                 
                 <p class="float-right">
                     <a href="#" id="${d}" class="btn btn-primary">Editar</a>
-                    <a href="#" id="${d}" onclick="deletar(d)" class="btn btn-danger">Excluir</a>
+                    <a href="#" id="${d}" onclick="deletar()" class="btn btn-danger">Excluir</a>
                 </p>
               </div>
               
@@ -73,8 +74,8 @@ function listar(d){
     $("#addcadastrosdecarros").appendChild(row);
 }
 
-function deletar(d){
-   console.log(d)
-  
+function deletar(){
+   var marca = document.getElementById("descricao").value
+  console.log(marca)
   
 }

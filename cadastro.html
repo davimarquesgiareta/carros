@@ -20,7 +20,7 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">
-          <img src="" class="img-fluid" alt="LogoMarca">
+          <img src="/img/logo.png" class="img-fluid" alt="LogoMarca">
         </h1>
         
       </div>
@@ -93,7 +93,7 @@
                     <strong>Foto:</strong>
                     <br>
                     <div class="input-group">
-                        <input type="text"  name="foto" id="foto" class="form-control" placeholder="Insira o nome da foto" aria-label="Usuário" aria-describedby="basic-addon1">
+                        <input type="text"  name="foto" id="foto" class="form-control" placeholder="Insira o nome com letras minusculas igual do modelo Ex: toyota" aria-label="Usuário" aria-describedby="basic-addon1">
                     </div>
                 </p>
               </div>
@@ -245,9 +245,19 @@
       }
 
       if (foto == "ford"){
-        console.log("eh ford")
+        foto = "img/ford.jpg"
         
-      }
+      }else if (foto == "toyota"){
+        foto = "img/toyota.jpg"
+     }else if (foto == "renault"){
+      foto = "img/renault.jpg"
+     }else if (foto == "chevrolet"){
+      foto = "img/chevrolet.jpg"
+     }else if (foto == "volkswagen"){
+      foto = "img/volkswagen.jpg"
+
+
+     }
 
       if (modelo.length < 2){
         console.log("o campo MODELO está vazio")
