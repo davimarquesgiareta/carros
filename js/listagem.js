@@ -1,6 +1,6 @@
 // usar o for eaach pra listar quem tem nos objetos
 console.log("to aqui")
-
+console.log("AQUIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
 
 const $ = q => document.querySelector(q);
@@ -40,13 +40,13 @@ function listar(d){
     row.innerHTML = `
     <div class="row">
               <div class="col-sm-2">
-                <img src="${localStorage.getItem('foto'+" " + d)}" class="img-fluid" alt="Imagem responsiva">
+                <img src="${localStorage.getItem('foto'+" " + d)}" class="img-fluid" alt="Sem foto Cadastrada">
               </div>
               <div class="col-sm">
                 <p>
                     <h4 id='nomedomodelo'>${localStorage.getItem('modelo'+" " + d)}</h4>
                 </p>
-                <label id="identificador"> ${d}</label>
+                
                 <p>
                     
                     <strong>Marca:</strong> <label id="marcaveiculo">${localStorage.getItem('marca'+" " + d)}</label>
@@ -55,7 +55,7 @@ function listar(d){
                     <br>
                     <strong>Cor:</strong> <label id="cor">${localStorage.getItem('cor'+" " + d)}</label>
                     <br>
-                    <strong>Ano:</strong> <label id="cor">${localStorage.getItem('ano'+" " + d)}</label>
+                    <strong>Ano:</strong> <label id="ano">${localStorage.getItem('ano'+" " + d)}</label>
                 </p>
                 
                 <p>
@@ -63,8 +63,8 @@ function listar(d){
                 </p>
                 
                 <p class="float-right">
-                    <a href="#" id="${d}" class="btn btn-primary">Editar</a>
-                    <a href="#" id="${d}" onclick="deletar()" class="btn btn-danger">Excluir</a>
+                    <a href="#" id="${d}" onclick="editar(${d})"class="btn btn-primary">Editar</a>
+                    <a href="#" id="${d}" onclick="deletar(${d})" class="btn btn-danger">Excluir</a>
                 </p>
               </div>
               
@@ -72,10 +72,28 @@ function listar(d){
     `;
 
     $("#addcadastrosdecarros").appendChild(row);
+    
 }
 
-function deletar(){
-   var marca = document.getElementById("descricao").value
-  console.log(marca)
+function deletar(d){
+   
+  console.log("deleta eu"+d)
+  localStorage.removeItem('modelo' + " " + d)
+  localStorage.removeItem('foto' + " " + d)
+  localStorage.removeItem('ano' + " " + d)
+  localStorage.removeItem('marca' + " " + d)
+  localStorage.removeItem('descricao' + " " + d)
+  localStorage.removeItem('cor' + " " + d)
+  localStorage.removeItem('preco' + " " + d)
+
+  window.location.href = "listagem.html";
+  
+}
+
+function editar(d){
+  //window.location.href = "listagem.html";
+  
+  localStorage.setItem('editor',d)
+  window.location.href = "editarcadastro.html";
   
 }
