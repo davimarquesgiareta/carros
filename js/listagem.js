@@ -86,7 +86,9 @@ function deletar(d){
   localStorage.removeItem('cor' + " " + d)
   localStorage.removeItem('preco' + " " + d)
 
-  window.location.href = "listagem.html";
+  
+
+  window.location.href = "excluidocomsucesso.html";
   
 }
 
